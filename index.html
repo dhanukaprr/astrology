@@ -3,48 +3,82 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Surya Astrology | Authentic Sri Lankan Vedic Insights</title>
+    <title>Surya Astrology | Ancestral Wisdom of Sri Lanka</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,700;1,400&family=Playfair+Display:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --maroon: #800000;
+            --gold: #b8860b;
+            --parchment: #fffdfa;
+        }
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: #ffffff;
-            color: #1e293b;
+            font-family: 'Crimson Pro', serif;
+            background-color: white;
+            color: #2d241e;
             scroll-behavior: smooth;
         }
         h1, h2, h3, h4, .serif {
             font-family: 'Playfair Display', serif;
         }
-        .celestial-bg-light {
-            background: radial-gradient(circle at top right, #fffbeb 0%, #ffffff 100%);
+        .traditional-border {
+            border: 8px double var(--maroon);
+            padding: 1rem;
             position: relative;
         }
-        .gold-glow {
-            text-shadow: 0 0 10px rgba(184, 134, 11, 0.2);
+        .traditional-border::before {
+            content: '✿';
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: white;
+            padding: 0 10px;
+            color: var(--maroon);
         }
-        .card-light {
-            background: #ffffff;
-            border: 1px solid #f1f5f9;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        .section-ornament {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            margin: 2rem 0;
         }
-        .card-light:hover {
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-            border-color: #fef08a;
-            transform: translateY(-4px);
+        .ornament-line {
+            height: 1px;
+            background: linear-gradient(to right, transparent, var(--gold), transparent);
+            flex-grow: 1;
         }
-        .animate-float {
-            animation: float 8s ease-in-out infinite;
+        .bg-parchment {
+            background-color: var(--parchment);
         }
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
+        .text-maroon {
+            color: var(--maroon);
         }
-        .gradient-text-gold {
-            background: linear-gradient(135deg, #854d0e 0%, #ca8a04 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+        .text-gold {
+            color: var(--gold);
+        }
+        .border-gold {
+            border-color: var(--gold);
+        }
+        .card-tradition {
+            background: white;
+            border: 1px solid #e5e7eb;
+            transition: all 0.4s ease;
+        }
+        .card-tradition:hover {
+            border-color: var(--gold);
+            box-shadow: 0 10px 30px rgba(128, 0, 0, 0.05);
+        }
+        .btn-traditional {
+            background-color: var(--maroon);
+            color: white;
+            padding: 12px 30px;
+            transition: all 0.3s;
+            border: 1px solid var(--maroon);
+        }
+        .btn-traditional:hover {
+            background-color: transparent;
+            color: var(--maroon);
         }
     </style>
 <script type="importmap">
