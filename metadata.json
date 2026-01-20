@@ -1,7 +1,5 @@
 {
   "name": "Surya Astrology - Ancient Wisdom of Ceylon",
   "description": "Unlock your destiny with authentic Sri Lankan Vedic and Nadi astrology readings.",
-  "requestFramePermissions": [
-    "microphone"
-  ]
+  "requestFramePermissions": []
 }
