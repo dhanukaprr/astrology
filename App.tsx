@@ -16,12 +16,17 @@ const App: React.FC = () => {
 
   useEffect(() => {
     const fetchDailies = async () => {
-      const lagnas = [Lagna.Mesha, Lagna.Kataka, Lagna.Sinha];
-      const preds: Record<string, string> = {};
-      for (const l of lagnas) {
-        preds[l] = await getDailyHoroscope(l);
+      try {
+        const lagnas = [Lagna.Mesha, Lagna.Kataka, Lagna.Sinha];
+        const preds: Record<string, string> = {};
+        for (const l of lagnas) {
+          const prediction = await getDailyHoroscope(l);
+          preds[l] = prediction;
+        }
+        setDailyPredictions(preds);
+      } catch (error) {
+        console.error("Error fetching daily horoscopes:", error);
       }
-      setDailyPredictions(preds);
     };
     fetchDailies();
   }, []);
