@@ -1,4 +1,3 @@
-
 export interface BirthInfo {
   name: string;
   birthDate: string;
@@ -25,16 +24,16 @@ export interface Message {
 }
 
 export enum Lagna {
-  Mesha = "මේෂ",
-  Vrushabha = "වෘෂභ",
-  Mithuna = "මිථුන",
-  Kataka = "කටක",
-  Sinha = "සිංහ",
-  Kanya = "කන්‍යා",
-  Thula = "තුලා",
-  Vrushchika = "වෘශ්චික",
-  Dhanu = "ධනු",
-  Makara = "මකර",
-  Kumbha = "කුම්භ",
-  Meena = "මීන"
+  Aries = "Aries",
+  Taurus = "Taurus",
+  Gemini = "Gemini",
+  Cancer = "Cancer",
+  Leo = "Leo",
+  Virgo = "Virgo",
+  Libra = "Libra",
+  Scorpio = "Scorpio",
+  Sagittarius = "Sagittarius",
+  Capricorn = "Capricorn",
+  Aquarius = "Aquarius",
+  Pisces = "Pisces"
 }

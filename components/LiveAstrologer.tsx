@@ -1,6 +1,6 @@
-
 import React, { useState, useRef, useEffect } from 'react';
 import { GoogleGenAI, LiveServerMessage, Modality } from '@google/genai';
+import { Mic, MicOff, Volume2, Sparkles, MessageSquare } from 'lucide-react';
 
 // Audio Utility Functions
 function decode(base64: string) {
@@ -66,7 +66,6 @@ const LiveAstrologer: React.FC = () => {
         model: 'gemini-2.5-flash-native-audio-preview-12-2025',
         callbacks: {
           onopen: () => {
-            console.log("Live session opened");
             setIsActive(true);
             setIsConnecting(false);
             
@@ -125,14 +124,13 @@ const LiveAstrologer: React.FC = () => {
             stopSession();
           },
           onclose: () => {
-            console.log("Live session closed");
             stopSession();
           }
         },
         config: {
           responseModalities: [Modality.AUDIO],
           outputAudioTranscription: {},
-          systemInstruction: "ඔබ පළපුරුදු ශ්‍රී ලාංකික ජ්‍යොතිර්වේදියෙකි. ඔබගේ නම 'සූර්යා'. කරුණාකර සිංහල භාෂාවෙන් පමණක් කතා කරන්න. ඉතා ගෞරවනීය සහ සුහදශීලී වන්න. (You are an experienced Sri Lankan astrologer named Surya. Speak only in Sinhala. Be respectful and friendly.)",
+          systemInstruction: "You are Surya, a master Sri Lankan Vedic Astrologer. Your tone is respectful, wise, and spiritual. You are speaking in English. Provide immediate celestial guidance based on user queries.",
           speechConfig: {
             voiceConfig: { prebuiltVoiceConfig: { voiceName: 'Kore' } }
           }
@@ -147,9 +145,6 @@ const LiveAstrologer: React.FC = () => {
   };
 
   const stopSession = () => {
-    if (sessionRef.current) {
-      // sessionRef.current.close(); // Assuming it has close
-    }
     setIsActive(false);
     setIsConnecting(false);
     if (audioContextRef.current) audioContextRef.current.close();
@@ -157,35 +152,50 @@ const LiveAstrologer: React.FC = () => {
   };
 
   return (
-    <div className="p-6 card-glass rounded-2xl shadow-2xl border border-yellow-500/30">
-      <div className="flex items-center justify-between mb-6">
-        <h2 className="text-2xl font-bold text-yellow-500">සජීවී AI ජ්‍යොතිර්වේදී උපදේශනය</h2>
-        <div className={`w-3 h-3 rounded-full ${isActive ? 'bg-green-500 animate-pulse' : 'bg-red-500'}`}></div>
+    <div className="p-10 bg-white rounded-[3rem] shadow-2xl border border-yellow-100 relative overflow-hidden">
+      <div className="absolute top-0 right-0 p-8 opacity-5">
+        <MessageSquare size={120} className="text-yellow-600" />
       </div>
       
-      <p className="text-gray-300 mb-6">අපගේ AI ජ්‍යොතිර්වේදී 'සූර්යා' සමඟ සජීවීව කතා කරන්න. ඔබගේ ප්‍රශ්න සිංහලෙන් අසන්න.</p>
+      <div className="flex items-center justify-between mb-8">
+        <div className="flex items-center gap-3">
+            <div className={`w-3 h-3 rounded-full ${isActive ? 'bg-green-500 animate-pulse' : 'bg-slate-300'}`}></div>
+            <h2 className="text-3xl font-bold text-slate-900 serif">Live AI Consultation</h2>
+        </div>
+        <Volume2 className={isActive ? 'text-yellow-500 animate-bounce' : 'text-slate-200'} size={24} />
+      </div>
+      
+      <p className="text-slate-500 mb-10 leading-relaxed font-light">
+        Consult our AI Master Astrologer 'Surya' in real-time. Ask your questions about career, love, 
+        or health for immediate cosmic feedback.
+      </p>
       
       {!isActive ? (
         <button
           onClick={startSession}
           disabled={isConnecting}
-          className="w-full py-4 bg-yellow-600 hover:bg-yellow-500 text-white font-bold rounded-xl transition-all shadow-lg shadow-yellow-900/20 disabled:opacity-50"
+          className="w-full py-6 bg-slate-900 hover:bg-black text-white font-bold rounded-2xl transition-all shadow-xl flex items-center justify-center gap-3 disabled:opacity-50"
         >
-          {isConnecting ? "සම්බන්ධ වෙමින්..." : "සජීවීව කතා කරන්න"}
+          {isConnecting ? "Establishing Cosmic Link..." : <><Mic size={22} /> Speak with Surya</>}
         </button>
       ) : (
         <button
           onClick={stopSession}
-          className="w-full py-4 bg-red-600 hover:bg-red-500 text-white font-bold rounded-xl transition-all shadow-lg"
+          className="w-full py-6 bg-red-50 text-red-600 border border-red-100 hover:bg-red-100 font-bold rounded-2xl transition-all flex items-center justify-center gap-3"
         >
-          සම්බන්ධතාවය නවත්වන්න
+          <MicOff size={22} /> Terminate Connection
         </button>
       )}
 
       {isActive && (
-        <div className="mt-8 p-4 bg-black/40 rounded-lg border border-white/10 min-h-[100px]">
-          <p className="text-xs text-yellow-500/50 mb-2 uppercase tracking-widest font-bold">Transcription (සජීවී අකුරු)</p>
-          <p className="text-gray-200 text-sm leading-relaxed">{transcription || "ශ්‍රවණය කරමින්..."}</p>
+        <div className="mt-10 p-6 bg-slate-50 rounded-2xl border border-slate-100 min-h-[140px] relative">
+          <div className="absolute top-4 right-6">
+            <Sparkles size={16} className="text-yellow-500/30" />
+          </div>
+          <p className="text-[10px] text-slate-400 mb-3 uppercase tracking-[0.2em] font-black">Live Transcription</p>
+          <p className="text-slate-700 text-lg leading-relaxed font-light italic">
+            {transcription || "Listening to the universe..."}
+          </p>
         </div>
       )}
     </div>
