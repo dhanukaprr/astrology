@@ -1,0 +1,52 @@
+<svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="sunGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#D67C1F;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#A03018;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Rays -->
+  <g transform="translate(100 100)">
+    <path d="M0 -80 Q10 -50 0 -40 Q-10 -50 0 -80 Z" fill="url(#sunGrad)" />
+    <path d="M0 -80 Q10 -50 0 -40 Q-10 -50 0 -80 Z" fill="url(#sunGrad)" transform="rotate(45)" />
+    <path d="M0 -80 Q10 -50 0 -40 Q-10 -50 0 -80 Z" fill="url(#sunGrad)" transform="rotate(90)" />
+    <path d="M0 -80 Q10 -50 0 -40 Q-10 -50 0 -80 Z" fill="url(#sunGrad)" transform="rotate(135)" />
+    <path d="M0 -80 Q10 -50 0 -40 Q-10 -50 0 -80 Z" fill="url(#sunGrad)" transform="rotate(180)" />
+    <path d="M0 -80 Q10 -50 0 -40 Q-10 -50 0 -80 Z" fill="url(#sunGrad)" transform="rotate(225)" />
+    <path d="M0 -80 Q10 -50 0 -40 Q-10 -50 0 -80 Z" fill="url(#sunGrad)" transform="rotate(270)" />
+    <path d="M0 -80 Q10 -50 0 -40 Q-10 -50 0 -80 Z" fill="url(#sunGrad)" transform="rotate(315)" />
+    
+    <!-- Smaller Rays -->
+    <path d="M0 -60 Q5 -45 0 -40 Q-5 -45 0 -60 Z" fill="#C29A45" transform="rotate(22.5)" />
+    <path d="M0 -60 Q5 -45 0 -40 Q-5 -45 0 -60 Z" fill="#C29A45" transform="rotate(67.5)" />
+    <path d="M0 -60 Q5 -45 0 -40 Q-5 -45 0 -60 Z" fill="#C29A45" transform="rotate(112.5)" />
+    <path d="M0 -60 Q5 -45 0 -40 Q-5 -45 0 -60 Z" fill="#C29A45" transform="rotate(157.5)" />
+    <path d="M0 -60 Q5 -45 0 -40 Q-5 -45 0 -60 Z" fill="#C29A45" transform="rotate(202.5)" />
+    <path d="M0 -60 Q5 -45 0 -40 Q-5 -45 0 -60 Z" fill="#C29A45" transform="rotate(247.5)" />
+    <path d="M0 -60 Q5 -45 0 -40 Q-5 -45 0 -60 Z" fill="#C29A45" transform="rotate(292.5)" />
+    <path d="M0 -60 Q5 -45 0 -40 Q-5 -45 0 -60 Z" fill="#C29A45" transform="rotate(337.5)" />
+  </g>
+
+  <!-- Central Face -->
+  <circle cx="100" cy="100" r="35" fill="#F2E8D5" stroke="#A03018" stroke-width="2" />
+  
+  <!-- Eyes -->
+  <path d="M85 95 Q90 90 95 95 Q90 100 85 95" fill="none" stroke="#2A211C" stroke-width="1.5" />
+  <circle cx="90" cy="95" r="1.5" fill="#2A211C" />
+  
+  <path d="M105 95 Q110 90 115 95 Q110 100 105 95" fill="none" stroke="#2A211C" stroke-width="1.5" />
+  <circle cx="110" cy="95" r="1.5" fill="#2A211C" />
+  
+  <!-- Nose -->
+  <path d="M100 95 L98 105 L102 105" fill="none" stroke="#2A211C" stroke-width="1.5" />
+  
+  <!-- Mouth -->
+  <path d="M95 112 Q100 115 105 112" fill="none" stroke="#2A211C" stroke-width="1.5" />
+
+  <!-- Bindi -->
+  <circle cx="100" cy="88" r="2" fill="#A03018" />
+
+  <!-- Decorative Circle inside face -->
+  <circle cx="100" cy="100" r="30" fill="none" stroke="#C29A45" stroke-width="1" stroke-dasharray="2 2" />
+</svg>
